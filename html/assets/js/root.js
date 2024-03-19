@@ -15,3 +15,7 @@ button.addEventListener('click', () => {
         icon.classList.add(lightIcon);
     }
 });
+
+let responsiveButton = document.getElementById("responsiveButton");
+responsiveButton.addEventListener('click', () => {
+});
