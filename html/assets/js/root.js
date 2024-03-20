@@ -16,6 +16,11 @@ button.addEventListener('click', () => {
     }
 });
 
-let responsiveButton = document.getElementById("responsiveButton");
-responsiveButton.addEventListener('click', () => {
+let menuButton = document.getElementById("menuButton");
+menuButton.addEventListener('click', () => {
+    let menuResponsive = document.querySelector(menuButton.dataset.idMenu);
+    if (menuResponsive.classList.contains("show"))
+        menuResponsive.classList.remove("show");
+    else
+        menuResponsive.classList.add("show");
 });
