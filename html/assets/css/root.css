@@ -309,6 +309,10 @@ p {
   margin-right: .5rem;
 }
 
+.post-info {
+  padding: 0.5rem;
+}
+
 @media screen and (min-width: 576px) {
   .container {
     max-width: 540px;
