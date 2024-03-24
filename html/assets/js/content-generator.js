@@ -10,7 +10,7 @@ randomNumber = randomRange(3, 6);
 
 // agrego los posteos
 for (let i = 0; i < randomNumber; i++) {
-    const card = new PostCard("Post #" + (i + 1), "Autor", "General", "https://picsum.photos/300/200?random=" + randomRange(1, 100));
+    const card = new PostCard("Título del Post #" + (i + 1), "Autor", "General", "https://picsum.photos/300/200?random=" + randomRange(1, 100));
     topContainer.appendChild(card.body());
 }
 
