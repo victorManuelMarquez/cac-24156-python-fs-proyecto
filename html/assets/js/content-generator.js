@@ -10,7 +10,7 @@ randomNumber = randomRange(3, 6);
 
 // agrego los posteos
 for (let i = 0; i < randomNumber; i++) {
-    const card = new PostCard("Post #" + (i + 1), "Autor", "General", "https://picsum.photos/200?random=" + randomRange(1, 100));
+    const card = new PostCard("Post #" + (i + 1), "Autor", "General", "https://picsum.photos/300/200?random=" + randomRange(1, 100));
     topContainer.appendChild(card.body());
 }
 
@@ -18,6 +18,6 @@ for (let i = 0; i < randomNumber; i++) {
 randomNumber = randomRange(1, 10);
 
 for (let i = 0; i < randomNumber; i++) {
-    const post = new PostInfo("Posteo del día", "Autor", "General", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus et amet praesentium sint cum neque, possimus sapiente at commodi error placeat rerum. Excepturi temporibus ab, aspernatur ea porro veritatis debitis.", "https://picsum.photos/200?random=" + randomRange(1, 100));
+    const post = new PostInfo("Posteo del día", "Autor", "General", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus et amet praesentium sint cum neque, possimus sapiente at commodi error placeat rerum. Excepturi temporibus ab, aspernatur ea porro veritatis debitis.", "https://picsum.photos/400/300?random=" + randomRange(1, 100));
     mainContainer.appendChild(post.body());
 }
