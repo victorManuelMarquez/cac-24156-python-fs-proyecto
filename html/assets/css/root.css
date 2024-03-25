@@ -323,7 +323,8 @@ p {
   height: auto;
 }
 
-.card img, .card .post-category {
+.card img,
+.card .post-category {
   margin-bottom: .5rem;
 }
 
@@ -341,7 +342,8 @@ img {
   font-size: calc(1.275rem + .3vw);
 }
 
-.post-category, .post-title-link {
+.post-category,
+.post-title-link {
   display: block;
   text-decoration: none;
   width: fit-content;
@@ -388,6 +390,19 @@ small {
   .container {
     max-width: 540px;
   }
+
+  .user-blog {
+    gap: .375rem;
+  }
+
+  .search-box {
+    padding-bottom: 0;
+    flex-grow: 1;
+  }
+
+  .search-box .btn {
+    margin: 0;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -433,11 +448,6 @@ small {
 
   .user-blog {
     gap: 1rem;
-  }
-
-  .search-box {
-    padding-bottom: 0;
-    flex-grow: 1;
   }
 
   .blog-top-content {
