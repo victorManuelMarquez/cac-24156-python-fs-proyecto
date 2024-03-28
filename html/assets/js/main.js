@@ -1,6 +1,7 @@
 let responsiveBtn = document.getElementById("responsiveBtn");
 let menuContainer = document.querySelector(responsiveBtn.dataset.collapseTarget);
 let menu = menuContainer.querySelector('.menu');
+let anchorTarget = "";
 
 responsiveBtn.addEventListener('click', () => {
     if (responsiveBtn.dataset.targetCollapsed === "false") {
@@ -22,11 +23,26 @@ menuContainer.addEventListener('transitionend', () => {
     if (responsiveBtn.dataset.targetCollapsed === "true") {
         menuContainer.classList.remove("show");
         menuContainer.style.height = "";
+        if (anchorTarget) {
+            let element = document.querySelector(anchorTarget);
+            console.log(element);
+            element.scrollTo(0, 0);
+        }
     }
 });
 
 menu.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
-        responsiveBtn.dispatchEvent(new Event('click'));
+        if (menuContainer.style.height !== "") {
+            responsiveBtn.dispatchEvent(new Event('click'));
+            anchorTarget = link.hash;
+        }
     });
+});
+
+window.addEventListener('resize', () => {
+    responsiveBtn.classList.remove("transform");
+    responsiveBtn.dataset.targetCollapsed = "true";
+    menuContainer.classList.remove("show");
+    menuContainer.style.height = "";
 });

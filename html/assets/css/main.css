@@ -1,10 +1,11 @@
+@import url('./support.css');
+
 :root {
     --bg-body: rgb(255, 255, 255);
     --color: rgb(0, 0, 0);
-    --page-bg: rgba(0, 0, 0, .1);
     --navbar-padding-y: 1rem;
     --navbar-padding-x: 0;
-    --navbar-max-height: 5rem;
+    --navbar-max-height: 4rem;
     --navbar-item-padding-y: .5rem;
     --navbar-item-padding-x: .5rem;
     --navbar-hover-item-bg: rgba(0, 0, 0, .15);
@@ -24,11 +25,15 @@ body {
     background-color: var(--bg-body);
     color: var(--color);
     scroll-behavior: smooth;
-    scroll-margin-top: var(--navbar-max-height);
+    scroll-padding-top: var(--navbar-max-height);
 }
 
 button:not(:disabled) {
     cursor: pointer;
+}
+
+p {
+    margin-bottom: 1rem;
 }
 
 .page-header {
@@ -113,8 +118,63 @@ button:not(:disabled) {
 }
 
 .page-content {
-    background-color: var(--page-bg);
+    display: grid;
     min-height: calc(100vh - var(--navbar-max-height));
+    scroll-snap-stop: always;
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.aside-content {
+    margin-bottom: 3rem;
+}
+
+.main-content {
+    background-color: var(--bg-body);
+}
+
+.section {
+    margin-bottom: 3rem;
+}
+
+.section-header {
+    margin-bottom: 1rem;
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+.card {
+    padding: 0 .75rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-img {
+    margin-bottom: .5rem;
+}
+
+.card-img img {
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+.card p {
+    margin-left: .75rem;
+    margin-right: .75rem;
+    text-align: center;
+}
+
+.section-content {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .page-footer {
@@ -132,11 +192,12 @@ button:not(:disabled) {
     padding-left: 0 !important;
 }
 
-.copy, .social {
+.copy,
+.social {
     margin-bottom: 1rem;
 }
 
-.copy > * {
+.copy>* {
     display: inline-block;
 }
 
@@ -146,6 +207,12 @@ button:not(:disabled) {
 
 .social a:not(:first-child) {
     margin-left: 1rem;
+}
+
+@media screen and (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -180,11 +247,46 @@ button:not(:disabled) {
         gap: 1rem;
     }
 
-    .copy, .social {
+    .container {
+        max-width: 720px;
+    }
+
+    .card {
+        width: calc(100% / 2);
+    }
+
+    .copy,
+    .social {
         display: inline-block;
     }
 
     .social {
         float: right;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+
+    .card {
+        width: calc(100% / 3);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .container {
+        max-width: 1340px;
+    }
+
+    .card {
+        width: calc(100% / 4);
     }
 }
