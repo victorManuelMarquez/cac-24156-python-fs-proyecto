@@ -1,5 +1,15 @@
 @import url('./support.css');
 
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Satisfy';
+    src: url('../fonts/Satisfy/Satisfy-Regular.ttf');
+}
+
 :root {
     --bg-body: rgb(255, 255, 255);
     --color: rgb(0, 0, 0);
@@ -24,12 +34,17 @@ html,
 body {
     background-color: var(--bg-body);
     color: var(--color);
+    font-family: 'Roboto';
     scroll-behavior: smooth;
     scroll-padding-top: var(--navbar-max-height);
 }
 
 button:not(:disabled) {
     cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Satisfy';
 }
 
 p {
@@ -53,6 +68,8 @@ p {
 }
 
 .navbar-brand {
+    font-family: 'Satisfy';
+    font-size: 1.25rem;
     font-weight: 600;
     padding: var(--navbar-item-padding-y) var(--navbar-item-padding-x);
 }
