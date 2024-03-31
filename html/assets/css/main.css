@@ -10,6 +10,16 @@
     src: url('../fonts/Satisfy/Satisfy-Regular.ttf');
 }
 
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/Open_Sans/static/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato/Lato-Regular.ttf');
+}
+
 :root {
     --bg-body: rgb(255, 255, 255);
     --color: rgb(0, 0, 0);
@@ -48,6 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
+    font-family: 'Open Sans';
     margin-bottom: 1rem;
 }
 
@@ -179,6 +190,7 @@ p {
 }
 
 .card-header {
+    font-family: 'Lato';
     text-align: center;
     margin-bottom: .5rem;
 }
