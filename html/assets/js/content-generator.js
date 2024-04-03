@@ -21,11 +21,12 @@ const randomNumber = (min = 0, max = 10) => Math.floor(Math.random() * (max - mi
 let nosotrosSection = document.getElementById("nosotros").querySelector('.section-content');
 
 
-totalNosotros = randomNumber(3, totalNosotros.length);
+totalNosotros = randomNumber(3, info.length);
 
 for (let i=0; i<totalNosotros; i++) {
     let randomName = nombres[randomNumber(0, nombres.length-1)];
     randomName += " " + apellidos[randomNumber(0, apellidos.length-1)];
     let randomInfo = info[randomNumber(0, info.length-1)];
-    nosotrosSection.appendChild(new UserCardInfo(randomName, randomInfo).body());
+    let randomPhoto = "https://picsum.photos/200/200?random" + randomNumber(1, 1000);
+    nosotrosSection.appendChild(new UserCardInfo(randomName, randomInfo, randomPhoto).body());
 }
