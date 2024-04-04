@@ -12,7 +12,8 @@ const info = [
     "Siempre a toda máquina!!!", 
     "Trabajando!!", 
     "Todo inicia aquí.", 
-    "Tengo espacio para tí..."
+    "Tengo espacio para tí...",
+    "Coleccionista dedicado y escribo por las noches."
 ];
 let totalNosotros = nombres.length;
 
