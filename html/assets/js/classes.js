@@ -1,3 +1,5 @@
+// Tarjeta simple para presentar a una persona en el sitio
+
 export class UserCardInfo {
     name;
     description;
@@ -9,6 +11,7 @@ export class UserCardInfo {
         this.imgURL = imgURL;
     }
 
+    // invocar a este método devuelve el componente html para renderizarlo
     body() {
         let container = document.createElement('div');
         container.className = "card";
