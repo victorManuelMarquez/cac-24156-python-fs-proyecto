@@ -2,6 +2,7 @@ let responsiveBtn = document.getElementById("responsiveBtn");
 let menuContainer = document.querySelector(responsiveBtn.dataset.collapseTarget);
 let menu = menuContainer.querySelector('.menu');
 let anchorTarget = "";
+let mainContentNavigation = document.getElementById("contenido").querySelector('.list').querySelectorAll('a');
 
 responsiveBtn.addEventListener('click', () => {
     if (responsiveBtn.dataset.targetCollapsed === "false") {
@@ -45,4 +46,14 @@ window.addEventListener('resize', () => {
     responsiveBtn.dataset.targetCollapsed = "true";
     menuContainer.classList.remove("show");
     menuContainer.style.height = "";
+});
+
+window.addEventListener('popstate', () => {
+    mainContentNavigation.forEach((anchor) => {
+        if (anchor.href === window.location.href) {
+            anchor.classList.add("active");
+        } else {
+            anchor.classList.remove("active");
+        }
+    });
 });
