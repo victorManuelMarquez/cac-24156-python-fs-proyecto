@@ -16,6 +16,11 @@
 }
 
 @font-face {
+    font-family: 'Open Sans Bold';
+    src: url('../fonts/Open_Sans/static/OpenSans-Bold.ttf');
+}
+
+@font-face {
     font-family: 'Lato';
     src: url('../fonts/Lato/Lato-Regular.ttf');
 }
@@ -158,6 +163,21 @@ p {
 .container {
     margin: 0 auto;
     width: 100%;
+}
+
+.post-category {
+    display: inline-block;
+    background-color: var(--color);
+    color: var(--bg-body);
+    border: 1px solid var(--color);
+    border-radius: 5px;
+    font-family: 'Open Sans Bold';
+    padding: .125rem .3rem;
+}
+
+.post-category:hover {
+    background-color: var(--bg-body);
+    color: var(--color);
 }
 
 .aside-content {
