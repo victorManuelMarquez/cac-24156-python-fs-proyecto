@@ -1,13 +1,30 @@
-let menuToggler = document.querySelector('button[data-collapse="menu-container"]');
-menuToggler.addEventListener('click', () => {
-    menuToggler.classList.toggle("transform");
-    let container = document.querySelector(menuToggler.dataset.target);
-    if (menuToggler.dataset.menuExpanded === "true") {
-        container.style.height = "";
-        menuToggler.dataset.menuExpanded = "false";
+let breakpoint_lg = getComputedStyle(document.documentElement).getPropertyValue('--breakpoint-lg').replace("px", "");
+let mainMenuToggler = document.querySelector('button[data-collapse="menu-container"]');
+let mainMenuContainer = document.querySelector(mainMenuToggler.dataset.target);
+let mainMenu = mainMenuContainer.querySelector(".menu");
+
+mainMenuToggler.addEventListener('click', () => {
+    mainMenuToggler.classList.toggle("transform");
+    if (mainMenuToggler.dataset.menuExpanded === "true") {
+        mainMenuContainer.style.height = "";
+        mainMenuToggler.dataset.menuExpanded = "false";
     } else {
-        menuToggler.dataset.menuExpanded = "true";
-        let menu = container.querySelector(".menu");
-        container.style.height = menu.offsetHeight + "px";
+        mainMenuToggler.dataset.menuExpanded = "true";
+        mainMenu.classList.add("show");
+        mainMenuContainer.style.height = mainMenu.offsetHeight + "px";
+    }
+});
+
+mainMenuContainer.addEventListener('transitionend', () => {
+    if (mainMenuToggler.dataset.menuExpanded === "false") {
+        mainMenu.classList.remove("show");
+    }
+})
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth >= breakpoint_lg) {
+        if (mainMenuToggler.dataset.menuExpanded === "true") {
+            mainMenuToggler.dispatchEvent(new Event('click'));
+        }
     }
 });
