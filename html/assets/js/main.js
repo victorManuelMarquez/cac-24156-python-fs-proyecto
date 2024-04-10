@@ -1,59 +1,13 @@
-let responsiveBtn = document.getElementById("responsiveBtn");
-let menuContainer = document.querySelector(responsiveBtn.dataset.collapseTarget);
-let menu = menuContainer.querySelector('.menu');
-let anchorTarget = "";
-let mainContentNavigation = document.getElementById("contenido").querySelector('.list').querySelectorAll('a');
-
-responsiveBtn.addEventListener('click', () => {
-    if (responsiveBtn.dataset.targetCollapsed === "false") {
-        responsiveBtn.dataset.targetCollapsed = "true";
+let menuToggler = document.querySelector('button[data-collapse="menu-container"]');
+menuToggler.addEventListener('click', () => {
+    menuToggler.classList.toggle("transform");
+    let container = document.querySelector(menuToggler.dataset.target);
+    if (menuToggler.dataset.menuExpanded === "true") {
+        container.style.height = "";
+        menuToggler.dataset.menuExpanded = "false";
     } else {
-        responsiveBtn.dataset.targetCollapsed = "false";
+        menuToggler.dataset.menuExpanded = "true";
+        let menu = container.querySelector(".menu");
+        container.style.height = menu.offsetHeight + "px";
     }
-    if (responsiveBtn.dataset.targetCollapsed === "true") {
-        menuContainer.style.height = "0px";
-    } else {
-        menuContainer.classList.add("show");
-        let menuHeight = menu.offsetHeight;
-        menuContainer.style.height = menuHeight + "px";
-    }
-    responsiveBtn.classList.toggle("transform");
-});
-
-menuContainer.addEventListener('transitionend', () => {
-    if (responsiveBtn.dataset.targetCollapsed === "true") {
-        menuContainer.classList.remove("show");
-        menuContainer.style.height = "";
-        if (anchorTarget) {
-            let element = document.querySelector(anchorTarget);
-            console.log(element);
-            element.scrollTo(0, 0);
-        }
-    }
-});
-
-menu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-        if (menuContainer.style.height !== "") {
-            responsiveBtn.dispatchEvent(new Event('click'));
-            anchorTarget = link.hash;
-        }
-    });
-});
-
-window.addEventListener('resize', () => {
-    responsiveBtn.classList.remove("transform");
-    responsiveBtn.dataset.targetCollapsed = "true";
-    menuContainer.classList.remove("show");
-    menuContainer.style.height = "";
-});
-
-window.addEventListener('popstate', () => {
-    mainContentNavigation.forEach((anchor) => {
-        if (anchor.href === window.location.href) {
-            anchor.classList.add("active");
-        } else {
-            anchor.classList.remove("active");
-        }
-    });
 });
