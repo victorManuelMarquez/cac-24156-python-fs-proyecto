@@ -378,6 +378,11 @@ button:not(:disabled) {
 
 .header-content section {
 	margin-top: var(--navbar-height);
+	overflow: auto;
+}
+
+.text-body {
+	color: inherit !important;
 }
 
 .navbar {
@@ -392,6 +397,7 @@ button:not(:disabled) {
 	font-family: 'OpenSans';
 	font-weight: 600;
 	box-shadow: var(--navbar-shadow);
+	z-index: 1000;
 }
 
 .navbar>.container {
