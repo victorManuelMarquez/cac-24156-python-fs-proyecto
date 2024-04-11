@@ -2,6 +2,7 @@ let breakpoint_lg = getComputedStyle(document.documentElement).getPropertyValue(
 let mainMenuToggler = document.querySelector('button[data-collapse="menu-container"]');
 let mainMenuContainer = document.querySelector(mainMenuToggler.dataset.target);
 let mainMenu = mainMenuContainer.querySelector(".menu");
+let menuLinks = mainMenu.querySelectorAll('.menu-item');
 
 mainMenuToggler.addEventListener('click', () => {
     mainMenuToggler.classList.toggle("transform");
@@ -20,6 +21,14 @@ mainMenuContainer.addEventListener('transitionend', () => {
         mainMenu.classList.remove("show");
     }
 })
+
+menuLinks.forEach((anchor) => {
+    anchor.addEventListener('click', () => {
+        if (window.innerWidth < breakpoint_lg) {
+            mainMenuToggler.dispatchEvent(new Event('click'));
+        }
+    });
+});
 
 window.addEventListener('resize', () => {
     if (window.innerWidth >= breakpoint_lg) {
