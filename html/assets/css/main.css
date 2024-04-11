@@ -6,8 +6,8 @@
 :root {
 	--bg-color: rgb(255, 255, 255);
 	--color: rgb(0, 0, 0);
-	--menu-icon-size: 32px;
-	--icon-bar-height: 6px;
+	--menu-icon-size: 30px;
+	--icon-bar-height: 5px;
 	--navbar-bg-color: rgb(0, 0, 0);
 	--navbar-color: rgb(255, 255, 255);
 	--navbar-bg-hover-color: rgb(255, 255, 255);
@@ -76,7 +76,9 @@ button:not(:disabled) {
 	display: block;
 	background: none;
 	color: inherit;
-	border: none;
+	border: 1px solid var(--navbar-color);
+	border-radius: 5px;
+	padding: .25rem .75rem;
 }
 
 .icon-bars {
@@ -87,19 +89,23 @@ button:not(:disabled) {
 
 .bar {
 	background-color: var(--navbar-color);
-	height: 6px;
+	height: 5px;
 	width: var(--menu-icon-size);
 	border-radius: 3px;
+	-webkit-transition: all var(--navbar-transition-time) ease;
+	-moz-transition: all var(--navbar-transition-time) ease;
+	-ms-transition: all var(--navbar-transition-time) ease;
+	-o-transition: all var(--navbar-transition-time) ease;
 	transition: all var(--navbar-transition-time) ease;
 }
 
 .bar:nth-child(2) {
-	margin: 6px 0px;
+	margin: 5px 0px;
 	opacity: 1;
 }
 
 .transform .bar:nth-child(1) {
-	transform: translate(0px, 12px) rotate(-45deg);
+	transform: translate(0px, 10px) rotate(-45deg);
 }
 
 .transform .bar:nth-child(2) {
@@ -107,7 +113,7 @@ button:not(:disabled) {
 }
 
 .transform .bar:nth-child(3) {
-	transform: translate(0px, -12px) rotate(45deg);
+	transform: translate(0px, -10px) rotate(45deg);
 }
 
 .menu-container {
@@ -115,12 +121,15 @@ button:not(:disabled) {
 	flex-basis: 100%;
 	flex-grow: 1;
 	overflow: hidden;
+	-webkit-transition: height var(--navbar-transition-time) ease;
+	-moz-transition: height var(--navbar-transition-time) ease;
+	-ms-transition: height var(--navbar-transition-time) ease;
+	-o-transition: height var(--navbar-transition-time) ease;
 	transition: height var(--navbar-transition-time) ease;
 }
 
 .menu {
 	list-style: none;
-	max-height: 100vh;
 	overflow: auto;
 }
 
@@ -153,6 +162,10 @@ button:not(:disabled) {
 }
 
 @media screen and (min-width: 992px) {
+	:root {
+		--navbar-item-padding-y: 1rem;
+	}
+
 	.navbar>.container {
 		width: auto;
 		padding-top: 0;
