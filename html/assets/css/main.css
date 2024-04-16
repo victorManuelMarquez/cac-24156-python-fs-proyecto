@@ -312,11 +312,7 @@
   --navbar-transition-time: .35s;
   --navbar-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15), inset 0 -1px 0 rgba(255, 255, 255, .15);
   --scroll-padding-top: calc(var(--navbar-height) + 1rem);
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-  --breakpoint-xxl: 1600px;
 }
 
 * {
