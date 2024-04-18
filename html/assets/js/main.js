@@ -4,6 +4,7 @@ let mainMenuToggler = document.querySelector('button[data-collapse="menu-contain
 let mainMenuContainer = document.querySelector(mainMenuToggler.dataset.target);
 let mainMenu = mainMenuContainer.querySelector(".menu");
 let menuLinks = mainMenu.querySelectorAll('.menu-item');
+let contentList = document.getElementById('content-section').querySelectorAll('.list-item');
 
 // Agrego el evento que colapsará o no el menú desplegable
 mainMenuToggler.addEventListener('click', () => {
@@ -49,4 +50,21 @@ window.addEventListener('resize', () => {
         // restauro las dimensiones en el modo responsive
         mainMenuContainer.style.height = mainMenu.offsetHeight + "px";
     }
+});
+
+// "barra de progreso" en la navegación del contenido principal
+// recorro cada enlace de interés de la página
+contentList.forEach((anchor) => {
+    // instalo el evento cuando se haga scroll
+    window.addEventListener('scroll', () => {
+        // obteno las dimensiones de cada sección por el id de cada link
+        let rect = document.querySelector(anchor.hash).getBoundingClientRect();
+        let top = rect.top;
+        let bottom = rect.bottom;
+        if (top < window.innerHeight && bottom >= 0) {
+            anchor.classList.add("active");
+        } else {
+            anchor.classList.remove("active");
+        }
+    });
 });

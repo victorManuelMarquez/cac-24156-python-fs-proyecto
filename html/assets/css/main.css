@@ -522,7 +522,12 @@ button:not(:disabled) {
 
 .list-item {
   display: block;
-  padding: .125rem .5rem .125rem 0;
+  padding: .125rem;
+  border-left: 5px solid transparent;
+}
+
+.list-item.active {
+  border-color: inherit;
 }
 
 .main-content .container {
