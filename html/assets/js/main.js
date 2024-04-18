@@ -57,14 +57,16 @@ window.addEventListener('resize', () => {
 contentList.forEach((anchor) => {
     // instalo el evento cuando se haga scroll
     window.addEventListener('scroll', () => {
-        // obteno las dimensiones de cada sección por el id de cada link
-        let rect = document.querySelector(anchor.hash).getBoundingClientRect();
-        let top = rect.top;
-        let bottom = rect.bottom;
-        if (top < window.innerHeight && bottom >= 0) {
-            anchor.classList.add("active");
-        } else {
-            anchor.classList.remove("active");
+        if (window.innerWidth >= breakpoint_lg) {
+            // obtengo las dimensiones de cada sección por el id de cada link
+            let rect = document.querySelector(anchor.hash).getBoundingClientRect();
+            let top = rect.top;
+            let bottom = rect.bottom;
+            if (top < window.innerHeight && bottom >= 0) {
+                anchor.classList.add("active");
+            } else {
+                anchor.classList.remove("active");
+            }
         }
     });
 });

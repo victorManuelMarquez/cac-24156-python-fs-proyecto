@@ -523,11 +523,6 @@ button:not(:disabled) {
 .list-item {
   display: block;
   padding: .125rem;
-  border-left: 5px solid transparent;
-}
-
-.list-item.active {
-  border-color: inherit;
 }
 
 .main-content .container {
@@ -692,6 +687,14 @@ button:not(:disabled) {
     top: var(--scroll-padding-top);
     height: calc(100vh - var(--scroll-padding-top));
     overflow-y: auto;
+  }
+
+  .list-item {
+    border-left: 5px solid transparent;
+  }
+
+  .list-item.active {
+    border-color: inherit;
   }
 
   .main-content {
