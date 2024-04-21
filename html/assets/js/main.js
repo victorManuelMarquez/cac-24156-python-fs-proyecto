@@ -70,3 +70,23 @@ contentList.forEach((anchor) => {
         }
     });
 });
+
+function checkMainMenu() {
+    let menuAnchors = mainMenu.querySelectorAll(".menu-item");
+    let menuAnchorActive = mainMenu.querySelector(".active");
+    menuAnchors.forEach((anchor) => {
+        if (anchor.hash === window.location.hash || anchor.href === window.location.href) {
+            if (menuAnchorActive && menuAnchorActive.classList.contains("active")) {
+                menuAnchorActive.classList.toggle("active");
+            }
+            anchor.classList.toggle("active");
+            menuAnchorActive = anchor;
+        }
+    });
+}
+
+checkMainMenu();
+
+window.addEventListener("popstate", () => {
+    checkMainMenu();
+});
