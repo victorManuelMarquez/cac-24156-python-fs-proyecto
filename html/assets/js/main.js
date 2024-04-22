@@ -87,6 +87,7 @@ function checkMainMenu() {
 
 checkMainMenu();
 
+// evento al cambiar la url (dicen que no funciona en todos los navegadores)
 window.addEventListener("popstate", () => {
     checkMainMenu();
 });
