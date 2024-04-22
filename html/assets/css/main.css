@@ -352,6 +352,11 @@ p {
   margin-bottom: 1rem;
 }
 
+img {
+  display: block;
+  width: 100%;
+}
+
 button:not(:disabled) {
   cursor: pointer;
 }
@@ -608,6 +613,10 @@ button:not(:disabled) {
   gap: .5rem;
 }
 
+.card {
+  display: grid;
+}
+
 @media screen and (min-width: 576px) {
   .page-footer .container {
     max-width: 540px;
@@ -630,6 +639,26 @@ button:not(:disabled) {
 
   .row .col {
     width: calc(100% / 3);
+  }
+
+  .card {
+    grid-template-areas: "card_title ." "card_image card_content";
+    grid-template-columns: 2fr 4fr;
+    column-gap: 1rem;
+  }
+
+  .card-title {
+    grid-area: card_title;
+    grid-column-start: 1;
+    grid-column-end: 6;
+  }
+
+  .card-img {
+    grid-area: card_image;
+  }
+
+  .card-content {
+    grid-area: card_content;
   }
 }
 
