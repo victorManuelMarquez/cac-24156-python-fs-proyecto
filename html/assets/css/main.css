@@ -312,6 +312,7 @@
   --navbar-transition-time: .35s;
   --navbar-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15), inset 0 -1px 0 rgba(255, 255, 255, .15);
   --scroll-padding-top: calc(var(--navbar-height) + 1rem);
+  --input-border-color: rgb(73, 80, 87);
   --breakpoint-lg: 992px;
 }
 
@@ -617,6 +618,76 @@ button:not(:disabled) {
   display: grid;
 }
 
+.card-img {
+  margin-bottom: 1rem;
+}
+
+.page-form {
+  padding: 1rem;
+}
+
+.page-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-form form>:last-child {
+  margin-bottom: 0;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-group input[type="email"] {
+  display: block;
+  font-size: 1rem;
+  background-color: var(--bg-color);
+  border: 1px solid var(--input-border-color);
+  border-radius: .375rem;
+  padding: .375rem .75rem;
+  width: 100%;
+}
+
+.input-group label {
+  display: inline-block;
+  font-family: 'OpenSans';
+  font-weight: 500;
+  margin-bottom: .5rem;
+}
+
+.input-group input[type="checkbox"] {
+  background-color: var(--bg-color);
+  border-radius: .25rem;
+  border: 1px solid var(--input-border-color);
+  margin-right: .5rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.page-form button[type="submit"] {
+  display: inline-block;
+  font-family: "OpenSans";
+  font-size: 1rem;
+  font-weight: 600;
+  align-self: flex-start;
+  border: 1px solid var(--input-border-color);
+  border-radius: .375rem;
+  line-height: 1.5;
+  padding: .375rem .75rem;
+  background-color: var(--navbar-bg-color);
+  color: var(--navbar-color);
+  transition: all .2s ease;
+}
+
+.page-form button[type="submit"]:hover {
+  color: var(--navbar-hover-color);
+  background-color: var(--navbar-bg-hover-color);
+}
+.text-center {
+  text-align: center;
+}
+
 @media screen and (min-width: 576px) {
   .page-footer .container {
     max-width: 540px;
@@ -655,6 +726,7 @@ button:not(:disabled) {
 
   .card-img {
     grid-area: card_image;
+    margin-bottom: 0;
   }
 
   .card-content {
@@ -703,7 +775,7 @@ button:not(:disabled) {
   }
 
   .page-content {
-    grid-template-areas: "main aside";
+    grid-template-areas: "main aside" "form form";
     grid-template-rows: auto;
     grid-template-columns: 4fr 1fr;
     gap: 1.5rem;
@@ -716,6 +788,7 @@ button:not(:disabled) {
     top: var(--scroll-padding-top);
     height: calc(100vh - var(--scroll-padding-top));
     overflow-y: auto;
+    background-color: var(--bg-color);
   }
 
   .list-item {
@@ -736,6 +809,12 @@ button:not(:disabled) {
 
   .row .col {
     width: 25%;
+  }
+
+  .page-form {
+    grid-area: form;
+    width: 50vw;
+    margin: auto;
   }
 }
 
