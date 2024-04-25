@@ -439,6 +439,7 @@ button:not(:disabled) {
 }
 
 .bar {
+  display: block;
   background-color: var(--navbar-color);
   height: 5px;
   width: var(--menu-icon-size);
