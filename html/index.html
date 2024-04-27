@@ -189,7 +189,15 @@
     <div class="page-form">
       <section>
         <h3 class="mb-3 text-center">Subscribirse en nuestro sitio</h3>
-        <form action="empty" method="post">
+        <form action="javascript:void(0);" method="post">
+          <div class="input-group">
+            <label for="nombres">Nombres</label>
+            <input type="text" name="nombres" id="campo_nombres">
+          </div>
+          <div class="input-group">
+            <label for="apellidos">Apellidos</label>
+            <input type="text" name="apellidos" id="campo_apellidos">
+          </div>
           <div class="input-group">
             <label for="campo_email">Correo electrónico</label>
             <input type="email" name="correo" id="campo_email" required>
@@ -197,6 +205,15 @@
           <div class="input-group">
             <input type="checkbox" name="notificaciones" id="check_notificaciones">
             <label for="check_notificaciones">Quiero recibir notificaciones</label>
+          </div>
+          <div class="input-group hide">
+            <label for="frecuencias">Seleccione la frecuencia de las notificaciones</label>
+            <select name="frecuencia" id="frecuencias">
+              <option value="diario">Diariamente</option>
+              <option value="semanal">Semanalmente</option>
+              <option value="mensual">Mensualmente</option>
+              <option value="anual">Anualmente</option>
+            </select>
           </div>
           <button type="submit">Enviar</button>
         </form>
