@@ -71,6 +71,7 @@ contentList.forEach((anchor) => {
     });
 });
 
+// resalta el ítem del menú actual
 function checkMainMenu() {
     let menuAnchors = mainMenu.querySelectorAll(".menu-item");
     let menuAnchorActive = mainMenu.querySelector(".active");
